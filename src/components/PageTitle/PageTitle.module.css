@@ -1,0 +1,15 @@
+.title {
+  font-size: 20px;
+}
+
+.primary {
+  color: blue;
+}
+
+.secondary {
+  color: red;
+}
+
+.onSale {
+  text-decoration: underline;
+}

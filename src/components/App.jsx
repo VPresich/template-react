@@ -1,11 +1,17 @@
 import "./App.css";
 import Product from "./Product/Product";
+import BookList from "./BooksList/BooksList";
+import favouriteBooks from "../data/books";
+import Card from "./Card/Card";
 
 function App() {
   return (
     <div>
-      <h1>Best selling</h1>
-
+      <h2>Card title</h2>
+      <Card>Text between opening and closing tag</Card>
+      <h2>Books of the week</h2>
+      <BookList books={favouriteBooks} />
+      <h2>Best selling</h2>
       <Product
         name="Tacos With Lime"
         imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"

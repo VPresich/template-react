@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FaBeer } from "react-icons/fa";
+import { FaCcAmazonPay } from "react-icons/fa6";
 import css from "./Payment.module.css";
 
 const Payment = ({
@@ -15,7 +15,7 @@ const Payment = ({
   return (
     <div className={containerClass}>
       <div>
-        <FaBeer size="40" className={iconClass} />
+        <FaCcAmazonPay size="40" className={iconClass} />
       </div>
       <p>
         Status: {isPaid ? "Paid" : "Pending"} {amount}$

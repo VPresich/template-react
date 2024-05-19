@@ -1,5 +1,6 @@
 import "./App.css";
 import PageTitle from "../PageTitle/PageTitle";
+import Button from "../Button/Button";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
       <PageTitle primary={true} onSale={true}>
         Page Title
       </PageTitle>
+      <Button variant="primary">My Button</Button>
+      <Button variant="secondary">My Button</Button>
     </div>
   );
 }

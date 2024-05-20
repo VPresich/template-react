@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TrackClicker from "../TrackClicker/TrackClicker";
+import IsolatedTrackClicker from "../IsolatedTrackClicker/IsolatedTrackClicker";
 import css from "./App.module.css";
 const data = [1, 2, 3, 4, 5];
 function App() {
@@ -16,6 +17,9 @@ function App() {
           Button{item}
         </TrackClicker>
       ))}
+
+      <IsolatedTrackClicker>IzButton</IsolatedTrackClicker>
+      <IsolatedTrackClicker>izButton</IsolatedTrackClicker>
     </div>
   );
 }

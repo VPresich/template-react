@@ -1,8 +1,9 @@
+import Button from "../Button/Button";
 const TrackClicker = ({ value, onClicker, children }) => {
   return (
-    <button onClick={onClicker}>
+    <Button onClick={onClicker}>
       {children}: {value}
-    </button>
+    </Button>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../Button/Button";
 
 const IsolatedTrackClicker = ({ children }) => {
   const [clicks, setClicks] = useState(0);
@@ -6,9 +7,9 @@ const IsolatedTrackClicker = ({ children }) => {
     setClicks(clicks + 1);
   };
   return (
-    <button onClick={handleClick}>
+    <Button onClick={handleClick} variant="secondary">
       {children}: {clicks}
-    </button>
+    </Button>
   );
 };
 

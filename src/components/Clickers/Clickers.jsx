@@ -19,7 +19,7 @@ const Clickers = ({ children }) => {
   return (
     <div className={css.list}>
       <h1>{children}</h1>
-      <h2>1. epended Track Clickers</h2>
+      <h2>1. Depended Track Clickers</h2>
       <div className={css.maplist}>
         {data.map((item, index) => (
           <TrackClicker key={index} value={clicks} onClicker={handleClick}>
@@ -32,7 +32,7 @@ const Clickers = ({ children }) => {
         <IsolatedTrackClicker>izButton</IsolatedTrackClicker>
         <IsolatedTrackClicker>izButton</IsolatedTrackClicker>
       </div>
-      <h2>3. Depended Track Clickers with Sum</h2>
+      <h2>3. InDepended Track Clickers with Sum</h2>
       <div className={css.sumClickers}>
         <TrackClicker
           value={objClicks.first}

@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Controls from "../Controls/Controls";
 import Progress from "../Progress/Progress";
 import articles from "../../data/articles.json";
-import ArticalView from "../ArticalView/ArticalView";
+import ArticleView from "../ArticleView/ArticleView";
 
+const getSelectedIdx = () => {
+  const savedIdx = window.localStorage.getItem("article-idx");
+  if (savedIdx !== null) {
+    return JSON.parse(savedIdx);
+  }
+  return 0;
+};
 const Reader = ({ children }) => {
-  const [selectedIdx, setSelectedIdx] = useState(0);
+  const [selectedIdx, setSelectedIdx] = useState(getSelectedIdx);
+
+  useEffect(() => {
+    window.localStorage.setItem("article-idx", selectedIdx);
+  }, [selectedIdx]);
 
   const handlePrev = () => {
     // setSelectedIdx((prevIdx) => Math.max(prevIdx - 1, 0));
@@ -33,7 +44,7 @@ const Reader = ({ children }) => {
       <Progress>
         {selectedIdx + 1}|{articles.length}
       </Progress>
-      <ArticalView>{visibleArticle}</ArticalView>
+      <ArticleView>{visibleArticle}</ArticleView>
     </div>
   );
 };

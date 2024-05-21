@@ -6,24 +6,30 @@
   font-weight: 500;
   font-family: inherit;
   color: white;
-  background-color: #1a1a1a;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s;
 }
 
-.btn:hover {
-  border-color: #646cff;
+.btn.primary:hover,
+.btn.primary:focus {
+  background-color: #646cff;
 }
 
-.btn:focus,
-.btn:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.btn.secondary:hover,
+.btn.secondary:focus {
+  background-color: #f2ae2f;
 }
 
-.primary {
+.btn.primary {
   background-color: blue;
 }
 
-.secondary {
-  background-color: orange;
+.btn.secondary {
+  background-color: #ffa500;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }

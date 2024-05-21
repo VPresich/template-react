@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import css from "./Button.module.css";
 
-const Button = ({ variant = "primary", children, onClick }) => {
+const Button = ({ variant = "primary", children, ...rest }) => {
   const style = clsx(
     css.btn,
     variant === "primary" ? css.primary : css.secondary
   );
   return (
-    <button className={style} onClick={onClick}>
+    <button className={style} {...rest}>
       {children}
     </button>
   );

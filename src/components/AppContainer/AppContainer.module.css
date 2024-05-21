@@ -1,0 +1,36 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.content-container {
+  padding-top: 74px;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 736px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .content-container {
+    padding-top: 88px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1182px;
+  }
+}

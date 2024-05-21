@@ -2,7 +2,7 @@ import { useState } from "react";
 import Controls from "../Controls/Controls";
 import Progress from "../Progress/Progress";
 import articles from "../../data/articles.json";
-import ArticalView from "../ArticalView/ArticalView";
+import ArticleView from "../ArticleView/ArticleView";
 
 const Reader = ({ children }) => {
   const [selectedIdx, setSelectedIdx] = useState(0);
@@ -33,7 +33,7 @@ const Reader = ({ children }) => {
       <Progress>
         {selectedIdx + 1}|{articles.length}
       </Progress>
-      <ArticalView>{visibleArticle}</ArticalView>
+      <ArticleView>{visibleArticle}</ArticleView>
     </div>
   );
 };

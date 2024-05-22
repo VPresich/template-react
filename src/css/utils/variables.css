@@ -1,0 +1,17 @@
+:root {
+  --background: rgb(251, 251, 251);
+  --main: #0c0c0c;
+  --accent: #3350e9;
+  --hover-color: #1f3cd4;
+
+  --cards-color: #f3f3f3;
+
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}

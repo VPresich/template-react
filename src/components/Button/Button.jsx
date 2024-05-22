@@ -7,7 +7,7 @@ const Button = ({ variant = "primary", children, ...rest }) => {
     variant === "primary" ? css.primary : css.secondary
   );
   return (
-    <button className={style} {...rest}>
+    <button className={style} type="button" {...rest}>
       {children}
     </button>
   );

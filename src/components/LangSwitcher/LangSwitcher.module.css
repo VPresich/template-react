@@ -1,4 +1,4 @@
-.inputClass {
+.combobox {
   width: 200px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -9,7 +9,13 @@
   outline: none;
 }
 
-.inputClass:focus {
+.combobox:focus {
   border-color: #646cff;
   box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
+
+.combobox option {
+  background-color: #ffffff;
+  color: #333;
+  padding: 10px;
 }

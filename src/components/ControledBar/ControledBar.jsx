@@ -1,6 +1,4 @@
 import css from "./ControledBar.module.css";
-// import Button from "../Button/Button";
-
 function ControledBar({ value, onChange }) {
   return (
     <div>

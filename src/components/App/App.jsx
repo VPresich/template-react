@@ -29,7 +29,7 @@ function App() {
         <h2>Controled Elements</h2>
         <ControledBar value={message} onChange={setMessage}></ControledBar>
         <p className={css.testControls}>Input: {message}</p>
-        <LangSwitcher lang={lang} onChangeLang={setLang}></LangSwitcher>
+        <LangSwitcher lang={lang} onSelect={setLang}></LangSwitcher>
         <p className={css.testControls}>Choose language: {lang}</p>
       </div>
     </AppContainer>

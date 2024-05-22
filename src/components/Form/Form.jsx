@@ -1,6 +1,6 @@
 import { useId } from "react";
 import css from "./Form.module.css";
-import Button from "../../Button/Button";
+import Button from "../Button/Button";
 
 function Form({ children, onSubmit }) {
   const userNameId = useId();

@@ -3,6 +3,7 @@ import AppContainer from "../AppContainer/AppContainer";
 import ControledBar from "../../components/ControledBar/ControledBar";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import ControledForm from "../ControledForm/ControledForm";
+import UserForm from "../UserForm/UserForm";
 
 import Form from "../Form/Form";
 import css from "./App.module.css";
@@ -37,6 +38,8 @@ function App() {
         <ControledForm onSubmit={savedUser}>
           Controled Form in React
         </ControledForm>
+
+        <UserForm />
       </div>
     </AppContainer>
   );

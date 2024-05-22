@@ -1,0 +1,30 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  border-radius: 4px;
+  padding: 24px;
+  border: 1px solid #646cff;
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.inputClass {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+}
+
+.inputClass:focus {
+  border-color: #646cff;
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}

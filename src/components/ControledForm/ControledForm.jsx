@@ -1,44 +1,66 @@
-import { useId } from "react";
+import { useId, useState } from "react";
 import css from "./ControledFrom.module.css";
 import Button from "../Button/Button";
 
-function ControledForm({ children, onSubmit }) {
-  const input1Id = useId();
-  const input2Id = useId();
-  const switchId = useId();
+const initialValues = { login: "", email: "", tech: "html" };
+function ControledForm({ children }) {
+  const [state, setState] = useState(initialValues);
+
+  const loginId = useId();
+  const EmailId = useId();
+  const techId = useId();
+
+  const handleChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({
-      input1: e.target.elements.input1.value,
-      input2: e.target.elements.input2.value,
-      switch1: e.target.elements.switch1.value,
-    });
-    e.target.reset();
+    console.log(state);
+    setState(initialValues);
   };
+
   return (
     <div className={css.formContainer}>
       <h2>{children}</h2>
-      <form className={css.controlsContainer} onSubmit={handleSubmit}>
-        <label htmlFor={input1Id}> Input 1:</label>
+      <form
+        className={css.controlsContainer}
+        autoComplete="off"
+        noValidate
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor={loginId}> Login:</label>
         <input
           className={css.inputClass}
           type="text"
-          name="input1"
-          id={input1Id}
+          name="login"
+          value={state.login}
+          id={loginId}
+          onChange={handleChange}
         />
-        <label htmlFor={input2Id}> Input 2:</label>
+        <label htmlFor={EmailId}> Email:</label>
         <input
           className={css.inputClass}
           type="text"
-          name="input2"
-          id={input2Id}
+          name="email"
+          id={EmailId}
+          value={state.email}
+          onChange={handleChange}
         />
-        <label htmlFor={switchId}>User role:</label>
-        <select className={css.inputClass} name="switch1" id={switchId}>
-          <option value="value1">Value 1</option>
-          <option value="value2">Value 2</option>
-          <option value="value3">Value 3</option>
+        <label htmlFor={techId}>Tech:</label>
+        <select
+          className={css.inputClass}
+          name="tech"
+          id={techId}
+          value={state.tech}
+          onChange={handleChange}
+        >
+          <option value="html">HTML</option>
+          <option value="js">JavaScript</option>
+          <option value="node">NodeJS</option>
         </select>
 
         <Button type="submit" name="btnSubmit">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import AppContainer from "../AppContainer/AppContainer";
 import ControledBar from "../../components/ControledBar/ControledBar";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
+import ControledForm from "../ControledForm/ControledForm";
 
 import Form from "../Form/Form";
 import css from "./App.module.css";
@@ -29,8 +30,13 @@ function App() {
         <h2>Controled Elements</h2>
         <ControledBar value={message} onChange={setMessage}></ControledBar>
         <p className={css.testControls}>Input: {message}</p>
+
         <LangSwitcher lang={lang} onSelect={setLang}></LangSwitcher>
         <p className={css.testControls}>Choose language: {lang}</p>
+
+        <ControledForm onSubmit={savedUser}>
+          Controled Form in React
+        </ControledForm>
       </div>
     </AppContainer>
   );

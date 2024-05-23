@@ -7,7 +7,7 @@ const ArticlesManager = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     async function getArticles() {
-      const response = await fetchArticles;
+      const response = await fetchArticles();
       setArticles(response.data.hits);
     }
     getArticles();

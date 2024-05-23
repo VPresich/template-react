@@ -15,9 +15,7 @@ axios.defaults.baseURL = "http://hn.algolia.com/api/v1";
 // };
 
 export const fetchArticles = async () => {
-  const response = await axios.get(
-    "http://hn.algolia.com/api/v1/search?query=react"
-  );
+  const response = await axios.get("/search?query=react");
 
   return response;
 };

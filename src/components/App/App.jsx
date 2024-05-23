@@ -1,27 +1,33 @@
 import { useState } from "react";
 import AppContainer from "../AppContainer/AppContainer";
-// import ControledBar from "../../components/ControledBar/ControledBar";
-// import LangSwitcher from "../LangSwitcher/LangSwitcher";
 // import ControledForm from "../ControledForm/ControledForm";
-// import UserForm from "../UserForm/UserForm";
+import UserForm from "../UserForm/UserForm";
 
 import MyForm from "../MyForm/MyForm";
 import css from "./App.module.css";
 
+const initialUser = { userName: "", userEmail: "", role: "user" };
+const initialProduct = { size: "ss", color: "red" };
+
 function App() {
-  const [user, setUser] = useState(null);
-  // const [message, setMessage] = useState("qwe");
-  // const [lang, setLang] = useState("english");
+  const [user, setUser] = useState(initialUser);
+  const [product, setProduct] = useState(initialProduct);
 
   const savedUser = (user) => {
     setUser(user);
     console.log("User:", user);
   };
 
+  const savedProduct = (product) => {
+    setProduct(product);
+    console.log("Product:", product);
+  };
+
   return (
     <AppContainer>
       <div className={css.controlsContainer}>
-        <MyForm onFormSubmit={savedUser}>Form with Formik</MyForm>
+        <h2>Forms with Formik</h2>
+        <MyForm initialValues={initialUser} onFormSubmit={savedUser} />
         {user && (
           <div>
             <p className={css.testControls}>Name: {user.userName}</p>
@@ -29,18 +35,18 @@ function App() {
             <p className={css.testControls}>Role: {user.role}</p>
           </div>
         )}
-        {/* <h2>Controled Elements</h2>
-        <ControledBar value={message} onChange={setMessage}></ControledBar>
-        <p className={css.testControls}>Input: {message}</p>
-
-        <LangSwitcher lang={lang} onSelect={setLang}></LangSwitcher>
-        <p className={css.testControls}>Choose language: {lang}</p>
-
+        <UserForm initialValues={initialProduct} onFormSubmit={savedProduct} />
+        {product && (
+          <div>
+            <p className={css.testControls}>Size: {product.size}</p>
+            <p className={css.testControls}>Color: {product.color}</p>
+          </div>
+        )}
+        {/* 
         <ControledForm onSubmit={savedUser}>
           Controled Form in React
         </ControledForm>
-
-        <UserForm /> */}
+       */}
       </div>
     </AppContainer>
   );

@@ -5,7 +5,7 @@ import css from "./MyForm.module.css";
 import Button from "../Button/Button";
 import UserSchema from "./userSchema";
 
-function MyForm({ children, onFormSubmit }) {
+function MyForm({ initialValues, onFormSubmit }) {
   const userNameId = useId();
   const userEmailId = useId();
   const userRoleId = useId();
@@ -16,13 +16,12 @@ function MyForm({ children, onFormSubmit }) {
   };
 
   return (
-    <div className={css.formContainer}>
-      <h2>{children}</h2>
-      <Formik
-        initialValues={{ userName: "", userEmail: "", role: "user" }}
-        onSubmit={handleSubmit}
-        validationSchema={UserSchema}
-      >
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={UserSchema}
+    >
+      <div className={css.formContainer}>
         <Form className={css.controlsContainer}>
           <div className={css.field}>
             <label htmlFor={userNameId}> User name:</label>
@@ -69,8 +68,8 @@ function MyForm({ children, onFormSubmit }) {
             Submit
           </Button>
         </Form>
-      </Formik>
-    </div>
+      </div>
+    </Formik>
   );
 }
 export default MyForm;

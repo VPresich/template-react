@@ -1,5 +1,14 @@
-.combobox {
-  width: 200px;
+.form {
+  display: flex;
+  gap: 4px;
+}
+
+.field {
+  font: inherit;
+  padding: 4px;
+}
+
+.inputClass {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -9,13 +18,7 @@
   outline: none;
 }
 
-.combobox:focus {
+.inputClass:focus {
   border-color: #646cff;
   box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
-}
-
-.combobox option {
-  background-color: #ffffff;
-  color: #333;
-  padding: 10px;
 }

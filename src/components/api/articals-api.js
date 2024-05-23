@@ -1,21 +1,13 @@
-import axios from "axios";
+import { algoliaAPI } from "./axiosInstances";
 
-axios.defaults.baseURL = "http://hn.algolia.com/api/v1";
+export const fetchArticles = async (strSearch, page) => {
+  const response = await algoliaAPI.get("/search", {
+    params: {
+      query: strSearch,
+      hitsPerPage: 10,
+      page,
+    },
+  });
 
-// export const fetchArticles = async (searchQuery, page = 1) => {
-//   const response = await axios.get("/search", {
-//     params: {
-//       query: searchQuery,
-//       hitsPerPage: 10,
-//       page,
-//     },
-//   });
-
-//   return response.data.hits;
-// };
-
-export const fetchArticles = async () => {
-  const response = await axios.get("/search?query=react");
-
-  return response;
+  return response.data.hits;
 };

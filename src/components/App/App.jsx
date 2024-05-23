@@ -7,7 +7,7 @@ import MyForm from "../MyForm/MyForm";
 import css from "./App.module.css";
 
 const initialUser = { userName: "", userEmail: "", role: "user" };
-const initialProduct = { size: "ss", color: "red" };
+const initialProduct = { size: "small", color: "red" };
 
 function App() {
   const [user, setUser] = useState(initialUser);

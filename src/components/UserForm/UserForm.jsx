@@ -9,59 +9,66 @@ const UserForm = ({ initialValues, onFormSubmit }) => {
   const sizeId = useId();
   const colorId = useId();
 
-  const handleSubmit = (state, actions) => {
-    onFormSubmit(state);
-    actions.resetForm();
+  const handleSubmit = (values) => {
+    onFormSubmit(values);
+    // actions.resetForm();
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={productSchema}
-    >
-      <div className={css.formContainer}>
-        <FaTshirt size="100" />
-        <Form className={css.controlsContainer}>
-          <div className={css.fieldContainer}>
-            <label htmlFor={sizeId}>Size:</label>
-            <Field
-              className={css.inputClass}
-              as="select"
-              name="size"
-              id={sizeId}
-            >
-              <option value="ss">Small</option>
-              <option value="sm">Medium</option>
-              <option value="sl">Large</option>
-            </Field>
-            <ErrorMessage
-              className={css.errorMessage}
-              name="size"
-              component="span"
-            />
-          </div>
+    <div className={css.formContainer}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={productSchema}
+      >
+        {(props) => (
+          <Form className={css.controlsContainer}>
+            <FaTshirt size="100" color={props.values.color} />
+            <div className={css.fieldContainer}>
+              <label htmlFor={sizeId}>Size:</label>
+              <Field
+                className={css.inputClass}
+                as="select"
+                name="size"
+                id={sizeId}
+              >
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </Field>
+              <ErrorMessage
+                className={css.errorMessage}
+                name="size"
+                component="span"
+              />
+            </div>
 
-          <div className={css.fieldContainer}>
-            <label htmlFor={colorId}>Color:</label>
-            <select className={css.inputClass} name="color" id={colorId}>
-              <option value="red">Red</option>
-              <option value="blue">Blue</option>
-              <option value="black">Black</option>
-            </select>
-            <ErrorMessage
-              className={css.errorMessage}
-              name="color"
-              component="span"
-            />
-          </div>
+            <div className={css.fieldContainer}>
+              <label htmlFor={colorId}>Color:</label>
+              <Field
+                className={css.inputClass}
+                as="select"
+                name="color"
+                id={colorId}
+              >
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="black">Black</option>
+              </Field>
+              <ErrorMessage
+                className={css.errorMessage}
+                name="color"
+                component="span"
+              />
+            </div>
 
-          <Button type="submit" name="btnSubmit">
-            Submit
-          </Button>
-        </Form>
-      </div>
-    </Formik>
+            <Button type="submit" name="btnSubmit">
+              Submit
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 };
 export default UserForm;

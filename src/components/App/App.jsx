@@ -1,12 +1,12 @@
 import AppContainer from "../AppContainer/AppContainer";
-import TaskManager from "../TaskManager/TaskManager";
+import ArticlesManager from "../ArticlesManager/ArticlesManager";
 // import css from "./App.module.css";
 
-function App() {
+const App = () => {
   return (
     <AppContainer>
-      <TaskManager></TaskManager>
+      <ArticlesManager />
     </AppContainer>
   );
-}
+};
 export default App;

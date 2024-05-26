@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { FaCcAmazonPay } from "react-icons/fa6";
@@ -13,6 +14,8 @@ const PaymentCard = ({
 
   const iconClass = clsx(css.icon, isPaid ? css.green : css.red);
 
+  const location = useLocation();
+
   return (
     <div className={containerClass}>
       <div>
@@ -24,7 +27,9 @@ const PaymentCard = ({
       <p>Description: {description}</p>
       <p>Card owner: {cardOwner}</p>
       <p>Payment Date: {date}</p>
-      <Link to={`/payments/${id}`}>Detailes</Link>
+      <Link to={`/payments/${id}`} state={location}>
+        Detailes
+      </Link>
     </div>
   );
 };

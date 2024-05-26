@@ -1,13 +1,13 @@
 import { useSearchParams } from "react-router-dom";
 import { useId } from "react";
-import css from "./PaimentFilter.module.css";
+import css from "./PaimentsFilter.module.css";
 
-const PaimentFilter = () => {
+const PaimentsFilter = () => {
   const [params, setParams] = useSearchParams();
-  const value = params.get("owner") ?? "";
+  const ownerValue = params.get("owner") ?? "";
   const searchId = useId();
 
-  const changeFilter = (newFilter) => {
+  const changeOwnerFilter = (newFilter) => {
     params.set("owner", newFilter);
     setParams(params);
   };
@@ -18,12 +18,12 @@ const PaimentFilter = () => {
       <input
         className={css.inputClass}
         type="text"
-        value={value}
-        onChange={(e) => changeFilter(e.target.value)}
+        value={ownerValue}
+        onChange={(e) => changeOwnerFilter(e.target.value)}
         id={searchId}
       />
     </div>
   );
 };
 
-export default PaimentFilter;
+export default PaimentsFilter;

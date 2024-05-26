@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import clsx from "clsx";
-import { NavLink, Outlet } from "react-router-dom";
-import { useParams } from "react-router-dom";
+
 import { fetchPaymentById } from "../../components/api/payments-api";
 import Payment from "../../components/Payment/Payment";
 import AppContainer from "../../components/AppContainer/AppContainer";
@@ -17,6 +18,10 @@ const PaymentDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [payment, setPayment] = useState(null);
+
+  const location = useLocation();
+  const backLinkRef = useRef(location.state ?? "/payments");
+  console.log(backLinkRef);
 
   useEffect(() => {
     async function getPaiment() {
@@ -37,6 +42,9 @@ const PaymentDetailsPage = () => {
   return (
     <AppContainer>
       <h2>Payment Details: {paymentId}</h2>
+
+      <Link to={backLinkRef.current}>Go back</Link>
+
       {error && <p>Error!!! Reload page!</p>}
       {isLoading && <p>Payments are loading ...</p>}
       {payment && <Payment data={payment} />}
@@ -54,7 +62,10 @@ const PaymentDetailsPage = () => {
           </NavLink>
         </li>
       </ul>
-      <Outlet />
+
+      <Suspense fallback={<div>Loading sub page...</div>}>
+        <Outlet />
+      </Suspense>
     </AppContainer>
   );
 };

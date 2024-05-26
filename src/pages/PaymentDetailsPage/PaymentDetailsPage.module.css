@@ -1,0 +1,21 @@
+.list {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.itemLink {
+  font-family: inherit;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.itemLink:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.activeItemLink {
+  color: blue;
+}

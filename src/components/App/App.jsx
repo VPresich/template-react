@@ -1,12 +1,15 @@
-import AppContainer from "../AppContainer/AppContainer";
-import ArticlesManager from "../ArticlesManager/ArticlesManager";
+import AppBar from "../AppBar/AppBar";
+import AppRouters from "../../routers";
+
 // import css from "./App.module.css";
 
 const App = () => {
   return (
-    <AppContainer>
-      <ArticlesManager />
-    </AppContainer>
+    <>
+      <AppBar />
+
+      <AppRouters />
+    </>
   );
 };
 export default App;

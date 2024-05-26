@@ -1,0 +1,26 @@
+.container {
+  padding: 8px;
+}
+
+.isPaid {
+  border-color: #3bcb3b;
+}
+
+.isPending {
+  border-color: #e05827;
+}
+
+.icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  color: #00ff37;
+}
+
+.green {
+  color: #00ff37;
+}
+
+.red {
+  color: #e05827;
+}

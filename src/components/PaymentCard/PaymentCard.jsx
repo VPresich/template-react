@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { FaCcAmazonPay } from "react-icons/fa6";
 import css from "./PaymentCard.module.css";
 
-const PaymentCard = ({ data: { id, amount, description, date, isPaid } }) => {
+const PaymentCard = ({
+  data: { id, amount, description, cardOwner, date, isPaid },
+}) => {
   const containerClass = clsx(
     css.container,
     isPaid ? css.isPaid : css.isPending
@@ -20,6 +22,7 @@ const PaymentCard = ({ data: { id, amount, description, date, isPaid } }) => {
         Status: {isPaid ? "Paid" : "Pending"} {amount}$
       </p>
       <p>Description: {description}</p>
+      <p>Card owner: {cardOwner}</p>
       <p>Payment Date: {date}</p>
       <Link to={`/payments/${id}`}>Detailes</Link>
     </div>

@@ -21,6 +21,7 @@ const Payment = ({
         Status: {isPaid ? "Paid" : "Pending"} {amount}$
       </p>
       <h2>Description: {description}</h2>
+      <p>Card owner: {cardOwner}</p>
       <p>Card Number: {cardNumber}</p>
       <p>Card Type: {cardType}</p>
       <p>Card Holder Name: {cardOwner}</p>

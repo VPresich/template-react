@@ -16,6 +16,7 @@ const PaimentFilter = () => {
     <div className={css.inputContainer}>
       <label htmlFor={searchId}>Filter by owner: </label>
       <input
+        className={css.inputClass}
         type="text"
         value={value}
         onChange={(e) => changeFilter(e.target.value)}

@@ -2,3 +2,19 @@
   padding-top: 16px;
   margin-bottom: 16px;
 }
+
+.inputClass {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+}
+
+.inputClass:focus {
+  border-color: #646cff;
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}

@@ -1,10 +1,16 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const selectLang = (state) => state.locale.lang;
 
-export const changeLang = createAction("locale/changeLang");
-export const localeReducer = createReducer({ lang: "uk" }, (builder) => {
-  builder.addCase(changeLang, (state, action) => {
-    state.lang = action.payload;
-  });
+const slice = createSlice({
+  name: "locale",
+  initialState: { lang: "uk" },
+  reducers: {
+    changeLang(state, action) {
+      state.lang = action.payload;
+    },
+  },
 });
+
+export default slice.reducer;
+export const { changeLang } = slice.actions;

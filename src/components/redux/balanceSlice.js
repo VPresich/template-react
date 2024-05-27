@@ -1,14 +1,20 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const deposit = createAction("balance/deposit");
-export const withdraw = createAction("balance/withdraw");
-
-export const balanceReducer = createReducer({ value: 1000 }, (builder) => {
-  builder
-    .addCase(deposit, (state, action) => {
+const slice = createSlice({
+  name: "balance",
+  initialState: {
+    value: 1000,
+  },
+  reducers: {
+    deposit(state, action) {
       state.value += action.payload;
-    })
-    .addCase(withdraw, (state, action) => {
+    },
+    withdraw(state, action) {
       state.value -= action.payload;
-    });
+    },
+  },
 });
+
+export const { deposit, withdraw } = slice.actions;
+
+export default slice.reducer;

@@ -1,21 +1,10 @@
-export const localeReducer = (state = { lang: "uk" }, action) => {
-  switch (action.type) {
-    case "locale/changeLang":
-      return {
-        ...state,
-        lang: action.payload,
-      };
-
-    default:
-      return state;
-  }
-};
-
-export const changeLang = (newLang) => {
-  return {
-    type: "locale/changeLang",
-    payload: newLang,
-  };
-};
+import { createAction, createReducer } from "@reduxjs/toolkit";
 
 export const selectLang = (state) => state.locale.lang;
+
+export const changeLang = createAction("locale/changeLang");
+export const localeReducer = createReducer({ lang: "uk" }, (builder) => {
+  builder.addCase(changeLang, (state, action) => {
+    state.lang = action.payload;
+  });
+});

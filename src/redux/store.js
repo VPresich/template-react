@@ -19,15 +19,26 @@ const balancePersistConfig = {
   whitlist: ["value"],
 };
 
+const localePersistConfig = {
+  key: "local",
+  storage,
+  whitlist: ["lang"],
+};
+
 const persistedBalanceReducer = persistReducer(
   balancePersistConfig,
   balanceReducer
 );
 
+const persistedLocalReducer = persistReducer(
+  localePersistConfig,
+  localeReducer
+);
+
 export const store = configureStore({
   reducer: {
     balance: persistedBalanceReducer,
-    locale: localeReducer,
+    locale: persistedLocalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

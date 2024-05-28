@@ -59,7 +59,7 @@
 // export default slice.reducer;
 
 import { createSlice } from "@reduxjs/toolkit";
-
+import { fetchTasks, deleteTask } from "./tasksOps";
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
@@ -67,20 +67,34 @@ const tasksSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducers: {
-    fetchingInProgress(state) {
-      state.isLoading = true;
-    },
-    fetchingSuccess(state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items = action.payload;
-    },
-    fetchingError(state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-  },
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchTasks.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(fetchTasks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchTasks.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteTask.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(deleteTask.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = state.items.filter(
+          (item) => item.id !== action.payload.id
+        );
+      })
+      .addCase(deleteTask.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      }),
 });
 
 export default tasksSlice.reducer;

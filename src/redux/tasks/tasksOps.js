@@ -1,17 +1,26 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { tasksAPI } from "../../components/api/axiosInstances";
-import {
-  fetchingInProgress,
-  fetchingSuccess,
-  fetchingError,
-} from "./tasksSlice";
 
-export const fetchTasks = () => async (dispatch) => {
-  try {
-    dispatch(fetchingInProgress());
-    const response = await tasksAPI.get("/tasks");
-    console.log(response);
-    dispatch(fetchingSuccess(response.data));
-  } catch (e) {
-    dispatch(fetchingError(e.message));
+export const fetchTasks = createAsyncThunk(
+  "tasks/fetchTasks",
+  async (_, thunkAPI) => {
+    try {
+      const response = await tasksAPI.get("/tasks");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-};
+);
+
+export const deleteTask = createAsyncThunk(
+  "tasks/deleteTask",
+  async (taskId, thunkAPI) => {
+    try {
+      const response = await tasksAPI.delete(`/tasks/${taskId}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

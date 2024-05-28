@@ -8,6 +8,7 @@ import { selectTasks } from "../../redux/tasks/tasksSelectors";
 
 import { Toaster } from "react-hot-toast";
 import Layout from "../Layout/Layout";
+import toast from "react-hot-toast";
 // import css from "./TasksReduxManager.module.css";
 
 const TasksRedux = () => {
@@ -15,7 +16,14 @@ const TasksRedux = () => {
   const { items, isLoading, error } = useSelector(selectTasks);
 
   useEffect(() => {
-    dispatch(fetchTasks());
+    dispatch(fetchTasks())
+      .unwrap()
+      .then(() => {
+        toast.success("fetchTasks fulfilled");
+      })
+      .catch(() => {
+        toast.error("fetchTasks rejected");
+      });
   }, [dispatch]);
 
   return (

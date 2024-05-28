@@ -59,7 +59,7 @@
 // export default slice.reducer;
 
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTasks, deleteTask, addTask } from "./tasksOps";
+import { fetchTasks, deleteTask, addTask, updateTask } from "./tasksOps";
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
@@ -106,10 +106,22 @@ const tasksSlice = createSlice({
       .addCase(addTask.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
+      })
+      .addCase(updateTask.pending, (state) => {
+        state.error = false;
+        state.isLoading = true;
+      })
+      .addCase(updateTask.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const taskIndex = state.items.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        state.items[taskIndex] = action.payload;
+      })
+      .addCase(updateTask.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
       }),
 });
 
 export default tasksSlice.reducer;
-
-export const { fetchingInProgress, fetchingSuccess, fetchingError } =
-  tasksSlice.actions;

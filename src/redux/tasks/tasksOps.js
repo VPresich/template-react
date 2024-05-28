@@ -36,3 +36,18 @@ export const addTask = createAsyncThunk(
     }
   }
 );
+
+export const updateTask = createAsyncThunk(
+  "tasks/updateTask",
+  async (updatedTask, thunkAPI) => {
+    try {
+      const response = await tasksAPI.put(
+        `/tasks/${updatedTask.id}`,
+        updatedTask
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

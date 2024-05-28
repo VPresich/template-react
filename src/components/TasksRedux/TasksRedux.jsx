@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import TaskForm from "../TaskForm/TaskForm";
+import TaskForm from "../TaskForm/TaskForm";
 import TaskList from "../TaskList/TaskList";
 
 import { fetchTasks } from "../../redux/tasks/tasksOps";
@@ -21,7 +21,7 @@ const TasksRedux = () => {
   return (
     <Layout>
       <h1>HTTP requests with Redux</h1>
-      {/* <TaskForm /> */}
+      <TaskForm />
       {isLoading && <p>Loading tasks...</p>}
       {error && <p>{error}</p>}
       {items.length > 0 && <TaskList tasks={items} />}

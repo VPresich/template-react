@@ -24,3 +24,15 @@ export const deleteTask = createAsyncThunk(
     }
   }
 );
+
+export const addTask = createAsyncThunk(
+  "tasks/addTask",
+  async (newTask, thunkAPI) => {
+    try {
+      const response = await tasksAPI.post("/tasks", newTask);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -59,7 +59,7 @@
 // export default slice.reducer;
 
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTasks, deleteTask } from "./tasksOps";
+import { fetchTasks, deleteTask, addTask } from "./tasksOps";
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
@@ -94,6 +94,18 @@ const tasksSlice = createSlice({
       .addCase(deleteTask.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(addTask.pending, (state) => {
+        state.error = false;
+        state.isLoading = true;
+      })
+      .addCase(addTask.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items.push(action.payload);
+      })
+      .addCase(addTask.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
       }),
 });
 

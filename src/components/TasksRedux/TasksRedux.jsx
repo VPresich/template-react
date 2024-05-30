@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoading, selectEror } from "../../redux/tasks/tasksSlice";
 import TaskForm from "../TaskForm/TaskForm";
+import TaskFilter from "../TaskFilter/TaskFilter";
 import TaskList from "../TaskList/TaskList";
 
 import { fetchTasks } from "../../redux/tasks/tasksOps";
@@ -32,6 +33,7 @@ const TasksRedux = () => {
     <Layout>
       <h1>HTTP requests with Redux</h1>
       <TaskForm />
+      <TaskFilter />
       {isLoading && <p>Loading tasks...</p>}
       {error && <p>{error}</p>}
       <TaskList />

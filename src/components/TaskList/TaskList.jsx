@@ -4,11 +4,11 @@ import Task from "../Task/Task";
 import css from "./TaskList.module.css";
 
 const TaskList = () => {
-  const filteredTasks = useSelector(selectFilteredTasks);
+  const tasks = useSelector(selectFilteredTasks);
 
   return (
     <ul className={css.list}>
-      {filteredTasks.map((task) => (
+      {tasks.map((task) => (
         <li className={css.item} key={task.id}>
           <Task data={task} />
         </li>

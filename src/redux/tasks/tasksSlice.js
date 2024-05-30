@@ -67,3 +67,6 @@ const tasksSlice = createSlice({
 });
 
 export default tasksSlice.reducer;
+export const selectIsLoading = (state) => state.tasks.isLoading;
+export const selectEror = (state) => state.tasks.error;
+export const selectTasks = (state) => state.tasks.items;

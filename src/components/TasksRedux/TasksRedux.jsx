@@ -1,19 +1,21 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoading, selectEror } from "../../redux/tasks/tasksSlice";
 import TaskForm from "../TaskForm/TaskForm";
 import TaskList from "../TaskList/TaskList";
 
 import { fetchTasks } from "../../redux/tasks/tasksOps";
-import { selectTasks } from "../../redux/tasks/tasksSelectors";
 
 import { Toaster } from "react-hot-toast";
 import Layout from "../Layout/Layout";
 import toast from "react-hot-toast";
-// import css from "./TasksReduxManager.module.css";
+// import css from "./TasksRedux.module.css";
 
 const TasksRedux = () => {
   const dispatch = useDispatch();
-  const { items, isLoading, error } = useSelector(selectTasks);
+
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectEror);
 
   useEffect(() => {
     dispatch(fetchTasks())
@@ -32,7 +34,7 @@ const TasksRedux = () => {
       <TaskForm />
       {isLoading && <p>Loading tasks...</p>}
       {error && <p>{error}</p>}
-      {items.length > 0 && <TaskList tasks={items} />}
+      <TaskList />
       <Toaster />
     </Layout>
   );

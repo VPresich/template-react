@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectFilteredTasks } from "../../redux/tasks/tasksSlice";
+import { selectFilteredTasks } from "../../redux/tasks/selectors";
 import Task from "../Task/Task";
 import css from "./TaskList.module.css";
 

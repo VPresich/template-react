@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useId } from "react";
-import {
-  changeTextFilter,
-  selectTextFilter,
-} from "../../redux/filter/filterSlice";
+import { changeTextFilter } from "../../redux/filter/filterSlice";
+import { selectTextFilter } from "../../redux/filter/selectors";
 
 import css from "./TaskFilter.module.css";
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsLoading, selectEror } from "../../redux/tasks/tasksSlice";
+import { selectIsLoading, selectEror } from "../../redux/tasks/selectors";
 import TaskForm from "../TaskForm/TaskForm";
 import TaskFilter from "../TaskFilter/TaskFilter";
 import TaskList from "../TaskList/TaskList";

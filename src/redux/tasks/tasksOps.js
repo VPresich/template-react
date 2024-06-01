@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { tasksAPI } from "../../components/api/axiosInstances";
+import { tasksManagerAPI as apiInst } from "../../components/api/axiosInstances";
 
 export const fetchTasks = createAsyncThunk(
   "tasks/fetchTasks",
   async (_, thunkAPI) => {
     try {
-      const response = await tasksAPI.get("/tasks");
+      const response = await apiInst.get("/tasks");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -17,7 +17,7 @@ export const deleteTask = createAsyncThunk(
   "tasks/deleteTask",
   async (taskId, thunkAPI) => {
     try {
-      const response = await tasksAPI.delete(`/tasks/${taskId}`);
+      const response = await apiInst.delete(`/tasks/${taskId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -29,7 +29,7 @@ export const addTask = createAsyncThunk(
   "tasks/addTask",
   async (newTask, thunkAPI) => {
     try {
-      const response = await tasksAPI.post("/tasks", newTask);
+      const response = await apiInst.post("/tasks", newTask);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -41,7 +41,7 @@ export const updateTask = createAsyncThunk(
   "tasks/updateTask",
   async (updatedTask, thunkAPI) => {
     try {
-      const response = await tasksAPI.put(
+      const response = await apiInst.put(
         `/tasks/${updatedTask.id}`,
         updatedTask
       );

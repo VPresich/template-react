@@ -11,3 +11,15 @@ export const mockAPI = axios.create({
 export const tasksAPI = axios.create({
   baseURL: "https://62584f320c918296a49543e7.mockapi.io",
 });
+
+export const tasksManagerAPI = axios.create({
+  baseURL: "https://goit-task-manager.herokuapp.com/",
+});
+
+export const setAuthHeader = (token, apiInst) => {
+  apiInst.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+};
+
+export const clearAuthHeader = (apiInst) => {
+  apiInst.defaults.headers.common["Authorization"] = "";
+};

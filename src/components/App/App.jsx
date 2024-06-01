@@ -1,11 +1,14 @@
-import TasksRedux from "../TasksRedux/TasksRedux";
+import AppContainer from "../AppContainer/AppContainer";
+import AppTasksBar from "../AppTasksBar/AppTasksBar";
+import AppRouter from "../AppRouter";
 // import css from "./App.module.css";
 
 const App = () => {
   return (
-    <>
-      <TasksRedux />
-    </>
+    <AppContainer>
+      <AppTasksBar />
+      <AppRouter />
+    </AppContainer>
   );
 };
 export default App;
